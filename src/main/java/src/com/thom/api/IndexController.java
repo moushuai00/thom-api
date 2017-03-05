@@ -2,11 +2,7 @@ package com.thom.api;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * Created by ThinkPad on 2017/3/5.
@@ -14,11 +10,13 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 public class IndexController {
 
-    @RequestMapping(value="hello")
-    public ModelAndView printWelcome(HttpServletRequest request, HttpServletResponse response) {
-        ModelAndView mav= new ModelAndView();
-        mav.addObject("city","test");
-        mav.setViewName("views/login");
-        return mav;
+    @RequestMapping(value="login", method = RequestMethod.GET)
+    public String login() {
+        return "views/login";
+    }
+
+    @RequestMapping(value="main", method = RequestMethod.GET)
+    public String main() {
+        return "views/main";
     }
 }

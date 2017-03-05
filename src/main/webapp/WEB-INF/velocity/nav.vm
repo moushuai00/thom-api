@@ -14,7 +14,7 @@
 
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav nav">
-                <li class="active"><a href="#">热门项目</a></li>
+                <li class="active"><a href="main">热门项目</a></li>
                 <li><a href="#">MOCK</a></li>
                 <li><a href="#">统计</a></li>
             </ul>
