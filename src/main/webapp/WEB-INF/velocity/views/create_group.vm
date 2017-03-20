@@ -1,0 +1,39 @@
+#set($layout="velocity/layout/layout_nav.vm")
+#set($pageTitle="创建团队")
+
+<div class="panel panel-default"    >
+    <div class="panel-heading">创建团队</div>
+    <div class="panel-body">
+        <form role="form">
+            <fieldset>
+                <div class="form-group">
+                    <label>团队名称</label>
+                    <input class="form-control" placeholder="请在此编辑团队名称" name="name" type="text">
+                </div>
+                <div class="form-group">
+                    <label>权限</label>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked> 仅团队成员可见</input
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">全员可见</input>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>团队描述</label>
+                    <input class="form-control" placeholder="请在此编辑团队描述" name="group_desc" type="text">
+                </div>
+                <label>团队成员</label>
+                <div class="form-group">
+                    <input class="form-control" placeholder="添加团队成员" name="members" type="text">
+                </div>
+                <button class="btn btn-primary" type="submit">确认创建</button>
+                <button class="btn btn-default" type="button">重置</button>
+            </fieldset>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thom.dao.TbCheckInMapper">
+  <resultMap id="BaseResultMap" type="com.thom.dto.TbCheckIn">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="tag" jdbcType="VARCHAR" property="tag" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="project_id" jdbcType="INTEGER" property="projectId" />
+    <result column="version" jdbcType="VARCHAR" property="version" />
+    <result column="workspace_mode" jdbcType="INTEGER" property="workspaceMode" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.thom.dto.TbCheckInWithBLOBs">
+    <result column="description" jdbcType="LONGVARCHAR" property="description" />
+    <result column="project_data" jdbcType="LONGVARCHAR" property="projectData" />
+    <result column="log" jdbcType="LONGVARCHAR" property="log" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, create_date, tag, user_id, project_id, version, workspace_mode
+  </sql>
+  <sql id="Blob_Column_List">
+    description, project_data, log
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.thom.dto.TbCheckInExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from tb_check_in
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.thom.dto.TbCheckInExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tb_check_in
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from tb_check_in
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_check_in
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.thom.dto.TbCheckInExample">
+    delete from tb_check_in
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.thom.dto.TbCheckInWithBLOBs">
+    insert into tb_check_in (id, create_date, tag, 
+      user_id, project_id, version, 
+      workspace_mode, description, project_data, 
+      log)
+    values (#{id,jdbcType=INTEGER}, #{createDate,jdbcType=TIMESTAMP}, #{tag,jdbcType=VARCHAR}, 
+      #{userId,jdbcType=INTEGER}, #{projectId,jdbcType=INTEGER}, #{version,jdbcType=VARCHAR}, 
+      #{workspaceMode,jdbcType=INTEGER}, #{description,jdbcType=LONGVARCHAR}, #{projectData,jdbcType=LONGVARCHAR}, 
+      #{log,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.thom.dto.TbCheckInWithBLOBs">
+    insert into tb_check_in
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="tag != null">
+        tag,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="projectId != null">
+        project_id,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+      <if test="workspaceMode != null">
+        workspace_mode,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="projectData != null">
+        project_data,
+      </if>
+      <if test="log != null">
+        log,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tag != null">
+        #{tag,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="projectId != null">
+        #{projectId,jdbcType=INTEGER},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="workspaceMode != null">
+        #{workspaceMode,jdbcType=INTEGER},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="projectData != null">
+        #{projectData,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="log != null">
+        #{log,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.thom.dto.TbCheckInExample" resultType="java.lang.Long">
+    select count(*) from tb_check_in
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update tb_check_in
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.createDate != null">
+        create_date = #{record.createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.tag != null">
+        tag = #{record.tag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.projectId != null">
+        project_id = #{record.projectId,jdbcType=INTEGER},
+      </if>
+      <if test="record.version != null">
+        version = #{record.version,jdbcType=VARCHAR},
+      </if>
+      <if test="record.workspaceMode != null">
+        workspace_mode = #{record.workspaceMode,jdbcType=INTEGER},
+      </if>
+      <if test="record.description != null">
+        description = #{record.description,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.projectData != null">
+        project_data = #{record.projectData,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.log != null">
+        log = #{record.log,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update tb_check_in
+    set id = #{record.id,jdbcType=INTEGER},
+      create_date = #{record.createDate,jdbcType=TIMESTAMP},
+      tag = #{record.tag,jdbcType=VARCHAR},
+      user_id = #{record.userId,jdbcType=INTEGER},
+      project_id = #{record.projectId,jdbcType=INTEGER},
+      version = #{record.version,jdbcType=VARCHAR},
+      workspace_mode = #{record.workspaceMode,jdbcType=INTEGER},
+      description = #{record.description,jdbcType=LONGVARCHAR},
+      project_data = #{record.projectData,jdbcType=LONGVARCHAR},
+      log = #{record.log,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update tb_check_in
+    set id = #{record.id,jdbcType=INTEGER},
+      create_date = #{record.createDate,jdbcType=TIMESTAMP},
+      tag = #{record.tag,jdbcType=VARCHAR},
+      user_id = #{record.userId,jdbcType=INTEGER},
+      project_id = #{record.projectId,jdbcType=INTEGER},
+      version = #{record.version,jdbcType=VARCHAR},
+      workspace_mode = #{record.workspaceMode,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.thom.dto.TbCheckInWithBLOBs">
+    update tb_check_in
+    <set>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tag != null">
+        tag = #{tag,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="projectId != null">
+        project_id = #{projectId,jdbcType=INTEGER},
+      </if>
+      <if test="version != null">
+        version = #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="workspaceMode != null">
+        workspace_mode = #{workspaceMode,jdbcType=INTEGER},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="projectData != null">
+        project_data = #{projectData,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="log != null">
+        log = #{log,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.thom.dto.TbCheckInWithBLOBs">
+    update tb_check_in
+    set create_date = #{createDate,jdbcType=TIMESTAMP},
+      tag = #{tag,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=INTEGER},
+      project_id = #{projectId,jdbcType=INTEGER},
+      version = #{version,jdbcType=VARCHAR},
+      workspace_mode = #{workspaceMode,jdbcType=INTEGER},
+      description = #{description,jdbcType=LONGVARCHAR},
+      project_data = #{projectData,jdbcType=LONGVARCHAR},
+      log = #{log,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.thom.dto.TbCheckIn">
+    update tb_check_in
+    set create_date = #{createDate,jdbcType=TIMESTAMP},
+      tag = #{tag,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=INTEGER},
+      project_id = #{projectId,jdbcType=INTEGER},
+      version = #{version,jdbcType=VARCHAR},
+      workspace_mode = #{workspaceMode,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

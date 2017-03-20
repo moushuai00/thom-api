@@ -1,0 +1,51 @@
+<div class="col-md-3">
+    <div style="width: 200px;">
+        <div class="panel-group" id="accordion2">
+            <div class="panel panel-default">
+                <div class="panel-heading" data-toggle="collapse"
+                     data-parent="#accordion2" href="#collapseOne">
+                    <a class="accordion-toggle">团队</a>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse"
+                     style="height: 0px;">
+                    <div class="panel-body">
+                        <ul class="nav nav-pills nav-stacked">
+                            <li><a href="list">所有团队</a></li>
+                            <li><a href="#">创建团队</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" data-toggle="collapse"
+                     data-parent="#accordion2" href="#collapseTwo">
+                    <a class="accordion-toggle">项目</a>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse"
+                     style="height: 0px;">
+                    <div class="panel-body">
+                        <ul class="nav nav-pills nav-stacked">
+                            <li><a href="#">所有项目</a></li>
+                            <li><a href="#">我的项目</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" data-toggle="collapse"
+                     data-parent="#accordion2" href="#collapseThree">
+                    <a class="accordion-toggle">案例</a>
+                </div>
+                <div id="collapseThree" class="panel-collapse collapse"
+                     style="height: 0px;">
+                    <div class="panel-body">
+                        <ul class="nav nav-pills nav-stacked">
+                            <li><a href="#">A案例</a></li>
+                            <li><a href="#">B案例</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

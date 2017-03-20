@@ -19,6 +19,8 @@
     <!-- don't handle the static resource -->
     <mvc:default-servlet-handler/>
 
+    <mvc:resources mapping="/resources/**" location="/resources/" />
+
     <!-- if you use annotation you must configure following setting -->
     <mvc:annotation-driven/>
 
@@ -28,7 +30,7 @@
     </bean>
 
     <!--org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver -->
-    <bean id="viewResolver" class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver">
         <property name="suffix" value=".vm"/>
         <property name="prefix" value="/velocity/"/>
         <!-- 使用springMacro的对象 -->
@@ -41,5 +43,6 @@
         <property name="dateToolAttribute" value="dateTool"/>
         <!-- velocity toolbox -->
         <property name="toolboxConfigLocation" value="/WEB-INF/toolbox.xml"/>
+        <property name="layoutUrl" value="/velocity/layout/layout.vm" />
     </bean>
 </beans>
