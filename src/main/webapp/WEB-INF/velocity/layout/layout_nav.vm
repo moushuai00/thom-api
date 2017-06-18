@@ -2,15 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="x-ua-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>$pageTitle</title>
     <link rel="stylesheet" href="$link.contextPath/resources/framework/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="$link.contextPath/resources/framework/bootstrapvalidator/dist/css/bootstrapValidator.css"/>
+    <link rel="stylesheet" href="$link.contextPath/resources/framework/jquery-confirm/css/jquery-confirm.css"/>
+    <link rel="stylesheet" href="$link.contextPath/resources/framework/bootstrap-switch/css/bootstrap-switch.css"/>
+    <link rel="stylesheet" href="$link.contextPath/resources/framework/bootstrap-combobox/css/bootstrap-combobox.css"/>
+    <link rel="stylesheet" href="$link.contextPath/resources/framework/select2/dist/css/select2.css"/>
+    <link rel="stylesheet" href="$link.contextPath/resources/framework/sweet-alert/css/sweet-alert.css"/>
     <link rel="stylesheet" href="$link.contextPath/resources/common/common.css"/>
+    #foreach($style in $!styles)
+        <link rel="stylesheet" href="$link.contextPath$style"/>
+    #end
 </head>
 <body>
 <div id="header>#parse("velocity/header.vm")</div>
-<div class="container">
-<div id="content" class="row-fluid">
-    <div class="navgate">
+<div class=" container">
+<div id="content">
+    <div class="navgate col-md-3">
         #parse("velocity/navigate.vm")
     </div>
     <div class="col-md-9">$screen_content</div>
@@ -18,5 +29,17 @@
 
 <script src="$link.contextPath/resources/framework/jquery/jquery-3.1.1.js"></script>
 <script src="$link.contextPath/resources/framework/bootstrap/js/bootstrap.js"></script>
+<script src="$link.contextPath/resources/framework/bootstrapvalidator/dist/js/bootstrapValidator.js"/>
+<script src="$link.contextPath/resources/framework/bootstrapvalidator/dist/js/language/zh_CN.js"/>
+<script src="$link.contextPath/resources/framework/jquery-confirm/js/jquery-confirm.js"></script>
+<script src="$link.contextPath/resources/framework/bootstrap-switch/js/bootstrap-switch.js"></script>
+<script src="$link.contextPath/resources/framework/bootstrap-combobox/js/bootstrap-combobox.js"></script>
+<script src="$link.contextPath/resources/framework/select2/dist/js/select2.min.js"></script>
+<script src="$link.contextPath/resources/framework/sweet-alert/js/sweet-alert.js"></script>
+<script src="$link.contextPath/resources/common/common.js"></script>
+    #foreach($script in $!scripts)
+        <script src="$link.contextPath$script"></script>
+    #end
+
 </body>
 </html>

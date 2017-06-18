@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thom.mapper.LuModuleMapper">
+
+    <insert id="insertModule" parameterType="com.thom.dto.LuModule">
+        INSERT INTO
+        LU_MODULE
+        (name, description, project_id)
+        VALUES
+        (#{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{projectId,jdbcType=TINYINT})
+        <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER">
+            SELECT LAST_INSERT_ID() as id
+        </selectKey>
+    </insert>
+
+    <select id="queryModules" resultType="com.thom.dto.LuModule">
+        SELECT id, name, description, project_id as projectId FROM LU_MODULE
+        <where>
+            <if test="name != null and name!=''">
+                name LIKE CONCAT('%', '${name}', '%')
+            </if>
+        </where>
+    </select>
+</mapper>

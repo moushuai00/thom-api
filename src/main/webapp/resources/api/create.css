@@ -1,0 +1,7 @@
+table tbody tr td{
+    padding: 0px !important;
+}
+
+.table-input{
+    border-width: 0px !important;
+}

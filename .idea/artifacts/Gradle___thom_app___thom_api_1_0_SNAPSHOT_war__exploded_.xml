@@ -29,13 +29,17 @@
           <element id="library" level="project" name="Gradle: org.aspectj:aspectjrt:1.8.6" />
           <element id="library" level="project" name="Gradle: org.aspectj:aspectjweaver:1.8.6" />
           <element id="library" level="project" name="Gradle: cglib:cglib:3.1" />
+          <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.5.4" />
+          <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.5.4" />
           <element id="library" level="project" name="Gradle: com.alibaba:druid:1.0.2" />
           <element id="library" level="project" name="Gradle: mysql:mysql-connector-java:5.1.38" />
           <element id="library" level="project" name="Gradle: org.mybatis:mybatis:3.2.8" />
           <element id="library" level="project" name="Gradle: org.mybatis:mybatis-spring:1.2.2" />
           <element id="library" level="project" name="Gradle: org.apache.velocity:velocity-tools:2.0" />
+          <element id="library" level="project" name="Gradle: org.hibernate:hibernate-validator:5.0.2.Final" />
           <element id="library" level="project" name="Gradle: ch.qos.logback:logback-core:1.1.3" />
           <element id="library" level="project" name="Gradle: org.ow2.asm:asm:4.2" />
+          <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.5.0" />
           <element id="library" level="project" name="Gradle: commons-collections:commons-collections:3.2.1" />
           <element id="library" level="project" name="Gradle: commons-lang:commons-lang:2.4" />
           <element id="library" level="project" name="Gradle: oro:oro:2.0.8" />
@@ -48,8 +52,13 @@
           <element id="library" level="project" name="Gradle: org.apache.struts:struts-core:1.3.8" />
           <element id="library" level="project" name="Gradle: org.apache.struts:struts-taglib:1.3.8" />
           <element id="library" level="project" name="Gradle: org.apache.struts:struts-tiles:1.3.8" />
+          <element id="library" level="project" name="Gradle: javax.validation:validation-api:1.1.0.Final" />
+          <element id="library" level="project" name="Gradle: org.jboss.logging:jboss-logging:3.1.1.GA" />
+          <element id="library" level="project" name="Gradle: com.fasterxml:classmate:1.0.0" />
           <element id="library" level="project" name="Gradle: antlr:antlr:2.7.2" />
           <element id="library" level="project" name="Gradle: org.apache.velocity:velocity:1.6.2" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.pagehelper/pagehelper/5.0.0/46c50043829ab4aa5ce90bd0760662174cc42219/pagehelper-5.0.0.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.jsqlparser/jsqlparser/0.9.5/b1ee308d5a745b4e6a98e83af9a75a6f2e5828d0/jsqlparser-0.9.5.jar" />
         </element>
       </element>
       <element id="directory" name="META-INF">

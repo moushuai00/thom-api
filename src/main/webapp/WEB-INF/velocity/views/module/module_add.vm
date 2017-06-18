@@ -1,0 +1,44 @@
+#set($layout="velocity/layout/layout_nav.vm")
+#set($pageTitle="新增模块")
+
+#set($scripts= [
+    "/resources/module/add/module_add.js"
+])
+
+<div class="panel panel-default">
+    <div class="panel-heading">创建模块</div>
+    <div class="panel-body">
+        <form class="module-add-form required-validate" action="$link.contextPath/module/do-add" method="post" role="form">
+            <fieldset>
+                <div class="form-group">
+                    <label>模块名称</label>
+                    <input class="form-control" placeholder="请在此编辑模块名称" name="name" type="text">
+                </div>
+                <div class="form-group">
+                    <label>模块描述</label>
+                    <input class="form-control" placeholder="请在此编辑模块描述" name="description" type="text">
+                </div>
+                <div class="form-group">
+                    <label>归属项目</label>
+                    <div>
+                        <select class="select2 js-states form-control" name="projectId" data-placeholder="选择归属项目"  style="width: 100%">
+                            #foreach($project in $!projects)
+                                <option value="$project.id">$project.name</option>
+                            #end
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group text-right">
+                    <button class="btn btn-primary" type="submit">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                        确认创建
+                    </button>
+                    <button class="btn btn-default" type="reset">
+                        <span class="glyphicon glyphicon-erase" aria-hidden="true"></span>
+                        重置
+                    </button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>

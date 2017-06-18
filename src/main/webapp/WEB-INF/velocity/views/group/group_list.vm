@@ -1,0 +1,14 @@
+#set($layout="velocity/layout/layout_nav.vm")
+#set($pageTitle="查看团队")
+#set($styles= [
+    "/resources/framework/bootstrap-table/dist/bootstrap-table.css"
+])
+
+#set($scripts= [
+    "/resources/framework/bootstrap-table/dist/bootstrap-table.js",
+    "/resources/group/list/group_list.js"
+])
+
+<div>
+    <table id="table" class="table table-striped"/>
+</div>

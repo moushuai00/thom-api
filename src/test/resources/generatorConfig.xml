@@ -45,7 +45,7 @@
 
         <!-- targetPackage：mapper接口生成的位置 -->
         <javaClientGenerator type="XMLMAPPER"
-                             targetPackage="com.thom.dao"
+                             targetPackage="com.thom.mapper"
                              targetProject="C:\Users\ThinkPad\Desktop\code\thom-api\src\main\java">
             <!-- enableSubPackages:是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="false"/>

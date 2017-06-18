@@ -1,0 +1,98 @@
+#set($layout="velocity/layout/layout_nav.vm")
+#set($pageTitle="创建接口文档")
+#set($styles= [
+    "/resources/framework/bootstrap-table/dist/bootstrap-table.css",
+    "/resources/framework/jquery-ui/jquery-ui.css",
+    "/resources/framework/jqGrid/css/ui.jqgrid.css",
+    "/resources/api/create.css"
+])
+
+#set($scripts= [
+    "/resources/framework/jqGrid/src/jquery.jqGrid.js",
+    "/resources/framework/jqGrid/src/grid.treegrid.js",
+    "/resources/framework/jqGrid/js/i18n/grid.locale-cn.js",
+    "/resources/api/create.js"
+])
+
+<div class="panel panel-default" ng-app="app">
+    <div class="panel-heading">新增接口</div>
+    <div class="panel-body">
+        <form class="api-add-form required-validate form-horizontal" role="form" action="$link.contextPath/api/do-add" method="post">
+            <div class="form-group">
+                <label class="control-label col-sm-2">接口名称</label>
+                <div class="col-sm-10">
+                    <input class="form-control" placeholder="请在此编辑接口名称" name="name" type="text"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">归属项目</label>
+                <div class="col-sm-4">
+                    <select class="combobox form-control" name="horizontal" required="required">
+                        <option value="" selected="selected">选择归属系统</option>
+                        #foreach($project in $!projects)
+                            <option value="$project.id">$project.name</option>
+                        #end
+                    </select>
+                </div>
+                <label class="control-label col-sm-2">归属模块</label>
+                <div class="col-sm-4">
+                    <select class="combobox form-control" name="horizontal" required="required">
+                        <option value="" selected="selected">选择归属模块</option>
+                        #foreach($module in $!modules)
+                            <option value="$module.id">$module.name</option>
+                        #end
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">请求地址</label>
+                <div class="col-sm-10">
+                    <input class="form-control" placeholder="请在此编辑请求地址" name="name" type="text"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">请求类型</label>
+                <div class="col-sm-10">
+                    <select class="combobox input-large form-control" name="horizontal" required="required">
+                        <option value="" selected="selected">选择请求类型</option>
+                        <option value="GET">GET</option>
+                        <option value="PUT">PUT</option>
+                        <option value="POST">POST</option>
+                        <option value="DELETE">DELETE</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">接口描述</label>
+                <div class="col-sm-10">
+                    <input class="form-control" placeholder="请在此编辑接口描述" name="name" type="text"/>
+                </div>
+            </div>
+            <div class="form-group  text-right"  style="padding-left: 15px; padding-right: 15px">
+                <table id="tree"></table>
+                <div id="pager"></div>
+            </div>
+            <div class="form-group">
+                <div class="form-group  text-right">
+                    <table id="tree"></table>
+                    <div id="pager"></div>
+                </div>
+            </div>
+
+            <div class="form-group text-right" style="margin-right: 5px">
+                <button class="btn btn-primary" type="submit">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    确认创建
+                </button>
+                <button class="btn btn-success" type="button">
+                    <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                    MOCK数据
+                </button>
+                <button class="btn btn-default" type="button">
+                    <span class="glyphicon glyphicon-erase" aria-hidden="true"></span>
+                    重置
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

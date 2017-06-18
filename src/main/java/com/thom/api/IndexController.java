@@ -12,7 +12,12 @@ public class IndexController {
 
     @RequestMapping(value="login", method = RequestMethod.GET)
     public String login() {
-        return "views/login";
+        return "views/user/login";
+    }
+
+    @RequestMapping(value="register", method = RequestMethod.GET)
+    public String register() {
+        return "views/user/register";
     }
 
     @RequestMapping(value="main", method = RequestMethod.GET)

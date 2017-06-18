@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thom.mapper.LuUserMapper">
+
+  <resultMap id="BaseResultMap" type="com.thom.dto.LuUser">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="account" jdbcType="VARCHAR" property="account" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="is_locked_out" jdbcType="INTEGER" property="isLockedOut" />
+    <result column="is_hint_enabled" jdbcType="INTEGER" property="isHintEnabled" />
+    <result column="last_login_date" jdbcType="TIMESTAMP" property="lastLoginDate" />
+    <result column="incorrect_login_attempt" jdbcType="INTEGER" property="incorrectLoginAttempt" />
+    <result column="realname" jdbcType="VARCHAR" property="realname" />
+    <result column="emp_id" jdbcType="VARCHAR" property="empId" />
+    <result column="mock_num" jdbcType="INTEGER" property="mockNum" />
+  </resultMap>
+
+  <insert id="insertUser" parameterType="com.thom.dto.LuUser">
+    INSERT INTO
+        LU_USER
+    (name, email, account, password, create_date, last_login_date)
+    VALUES
+    (#{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{account,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, now(), now())
+  </insert>
+
+  <select id="findUsersShort" resultType="com.thom.dto.LuUser">
+    SELECT id, name FROM LU_USER
+  </select>
+</mapper>

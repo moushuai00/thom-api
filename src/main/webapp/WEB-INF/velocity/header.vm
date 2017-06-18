@@ -20,8 +20,9 @@
                 <li><a href="#">MOCK</a></li>
                 <li><a href="#">统计</a></li>
             </ul>
-            <div class="navbar-form navbar-right" style="margin-right: 20px;margin-bottom: 15px; margin-top: 15px">
-                <a href="login" class="navbar-link">登录</a>
+            <div class="navbar-form navbar-right nav-right-box">
+                <a href="$link.contextPath/login" class="navbar-link">登录</a>
+                <a href="$link.contextPath/register" class="navbar-link navbar-right-last">注册</a>
             </div>
         </div>
     </div>

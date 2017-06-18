@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thom.mapper.LuGroupMapper">
+
+    <insert id="insertGroup" parameterType="com.thom.dto.LuGroup">
+        INSERT INTO
+        LU_GROUP
+        (name, description, is_open)
+        VALUES
+        (#{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{isOpen,jdbcType=TINYINT})
+        <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER">
+            SELECT LAST_INSERT_ID() as id
+        </selectKey>
+    </insert>
+
+
+    <select id="queryGroups" resultType="com.thom.dto.LuGroup">
+        SELECT id, name, description, is_open as isOpen FROM LU_GROUP
+        <where>
+            <if test="name != null and name!=''">
+                name LIKE CONCAT('%', '${name}', '%')
+            </if>
+        </where>
+    </select>
+
+</mapper>
